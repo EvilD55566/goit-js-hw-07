@@ -31,14 +31,21 @@ ImageGallery.addEventListener("click", (event) => {
   const selectedImage = event.target.getAttribute("data-source");
 
   const instance = basicLightbox.create(`
-    <img src="${selectedImage}">
+    <img src="${selectedImage}" alt="full-image">
 `);
 
   instance.show();
 
-  ImageGallery.addEventListener("keydown", (event) => {
+  ImageGallery.addEventListener("keydown", addEscapeKey) 
+  
+  function addEscapeKey(event) {
     if (event.key === "Escape") {
       instance.close();
+      ImageGallery.removeEventListener("keydown", addEscapeKey);
+      console.log("keydown");
     }
+  }
+    
+   
   });
-});
+
