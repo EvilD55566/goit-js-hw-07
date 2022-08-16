@@ -36,16 +36,12 @@ ImageGallery.addEventListener("click", (event) => {
 
   instance.show();
 
-  ImageGallery.addEventListener("keydown", addEscapeKey) 
-  
+  ImageGallery.addEventListener("keydown", addEscapeKey);
+
   function addEscapeKey(event) {
     if (event.key === "Escape") {
       instance.close();
       ImageGallery.removeEventListener("keydown", addEscapeKey);
-      console.log("keydown");
     }
   }
-    
-   
-  });
-
+});
